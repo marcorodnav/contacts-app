@@ -34,4 +34,27 @@
         });
         dataSource.read();
     }
+
+    window.getContactDetails = function(e) {
+        selectedContactId = e.view.params.id;
+        var options = new ContactFindOptions();
+        options.multiple = true;
+        var fields = ["*"];
+        navigator.contacts.find(fields, onContactDetailSuccess, onError, options);
+    }
+
+    function onContactDetailSuccess(contacts) {
+        for (var i = 0; i < contacts.length; i++) {
+            if (contacts[i].id == selectedContactId) {
+                $("#contact-name").text(getName(contacts[i]));
+                if (contacts[i].phoneNumbers) {
+                    $("#contact-phone").text(contacts[i].phoneNumbers[0].value);
+                } else {
+                    $("#contact-phone").text("");
+                }
+                selectedContact = contacts[i];
+                break;
+            }
+        }
+    }
 }());
