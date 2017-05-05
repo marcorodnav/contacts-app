@@ -52,6 +52,11 @@
                 } else {
                     $("#contact-phone").text("");
                 }
+                if (contacts[i].photos && contacts[i].photos.length) {
+                    $(".largeProfile").attr("src", contacts[i].photos[0].value);
+                } else {
+                    $(".largeProfile").attr("src", "styles/blankProfile.png");
+                }
                 selectedContact = contacts[i];
                 break;
             }
