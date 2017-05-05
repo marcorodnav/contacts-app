@@ -35,6 +35,12 @@
     <script id="contacts-template" type="text/x-kendo-template">
         <li>
             <a href="\#view-contact?id=${id}" class="expand">
+                # if (photos && photos.length) { #
+                    <img class="smallProfile" src="${photos[0].value}" />
+                # } else { #
+                    <img class="smallProfile" src="styles/blankProfile.png" />
+                # } #
+
                 # if (name.formatted) { #
                     ${name.formatted}
                 # } else if (name.givenName) { #
