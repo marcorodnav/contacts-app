@@ -18,4 +18,20 @@
     	return "No Name Listed";
     }
 
+    window.getAllContacts = function() {
+        var options = new ContactFindOptions();
+        options.filter = "";
+        options.multiple = true;
+        var fields = ["*"];
+        navigator.contacts.find(fields, onContactSuccess, onError, options);
+    }
+
+    function onContactSuccess(contacts) {
+        var template = kendo.template($("#contacts-template").html());
+        var dataSource = new kendo.data.DataSource({ data: contacts });
+        dataSource.bind("change", function() {
+            $("#contacts-list").html(kendo.render(template, dataSource.view()));
+        });
+        dataSource.read();
+    }
 }());
