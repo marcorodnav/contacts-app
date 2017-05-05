@@ -22,7 +22,7 @@
         <ul id="contacts-list" data-role="listview"></ul>
     </div>
     
-    <div id="view-contact" data-role="view" data-title="Contact Details">
+    <div id="view-contact" data-role="view" data-title="Contact Details" data-show="window.getContactDetails">
         <header data-role="header">
             <div data-role="navbar">
                 <a data-align="left" data-role="backbutton">Back</a>
@@ -34,13 +34,15 @@
     </div>
     <script id="contacts-template" type="text/x-kendo-template">
         <li>
-            # if (name.formatted) { #
-                ${name.formatted}
-            # } else if (name.givenName) { #
-                ${name.givenName +" "+ name.familyName}
-            # } else { #
-                No Name Listed
-            # } #
+            <a href="\#view-contact?id=${id}" class="expand">
+                # if (name.formatted) { #
+                    ${name.formatted}
+                # } else if (name.givenName) { #
+                    ${name.givenName +" "+ name.familyName}
+                # } else { #
+                    No Name Listed
+                # } #
+            </a>
         </li>
     </script>
 </body>
