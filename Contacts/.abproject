@@ -41,7 +41,8 @@
     "cordova-plugin-splashscreen",
     "cordova-plugin-statusbar",
     "cordova-plugin-vibration",
-    "cordova-plugin-whitelist"
+    "cordova-plugin-whitelist",
+    "nl.x-services.plugins.toast@2.5.2"
   ],
   "AndroidPermissions": [
     "android.permission.ACCESS_COARSE_LOCATION",

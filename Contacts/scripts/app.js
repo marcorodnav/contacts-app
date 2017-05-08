@@ -73,5 +73,8 @@
         photo[0] = new ContactField('photo', imageURI, false)
         selectedContact.photos = photo;
         selectedContact.save();
+        if (window.plugins && window.plugins.toast) {
+            window.plugins.toast.showSortCenter("The profile picture has been updated!");
+        }
     }
 } ());
